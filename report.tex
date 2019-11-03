@@ -9,6 +9,7 @@
 \usepackage{diagbox}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{multirow}
 \usepackage[top=3cm,bottom=2cm,left=2cm,right=2cm]{geometry} % 页边距
 \title{Software System Design-Architecture\\Assignment 3\\C4 System Architecture Design}
 \author{4 people}
@@ -286,28 +287,55 @@
 		\caption{Usability Scenario}
 		\end{table}
 	\end{center}
+	
+\newpage
 
 	\subsection{Records of ADD iterations}
 		\subsubsection{Iteration 1}
-		Chosen element: the whole system.
-		Chosen ASR: 
-		1. near 7x24 availability.
-		2. It should allow for "leaner" growth and should be able to grow at a rapid rate.
-		Design Concerns: high  availability, high scalability.
-		Candidate architecture patterns:\\
-
-		\begin{tabular}{|c|c|c|}
-			\hline
-			pattern name & complexity& fault-tolerance\\
-			\hline
-			broker& low& low\\
-			\hline
-			redundant broker& high& high\\
-			\hline
-		\end{tabular}
-		\\\\
-		Chosen pattern: redundant broker
-		Reason: Added broker can help manage server nodes and easily achieve high availability. But the business background goal that the system can handle requests simultaneously with highly growing customers will implies high pressure on the broker. Redundant broker is adopted for data backup quick switch in emergency condition. 
+			\paragraph{Chosen element} the whole system.
+			\paragraph{Chosen ASR}
+			\begin{enumerate}
+			\item Near 7x24 availability.
+			\item It should allow for "leaner" growth and should be able to grow at a rapid rate.
+			\end{enumerate}
+			\paragraph{Design Concerns} high availability, high scalability.
+			\paragraph{Alternative Patterns}
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					Design Concerns & subordinate Concerns\\
+					\hline 
+					% \multirow{rows}{width}{text}
+					\multirow{2}*{Availability} & a\\
+					\cline{2-2}
+					~ & aa\\
+					\hline
+					leaner growth & b\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\paragraph{Select patterns}
+			\subparagraph{Alternative availability tactics}
+			Discriminating parameters:\\
+			\begin{itemize}
+				\item a
+				\item b
+			\end{itemize}
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					pattern name & complexity & fault-tolerance\\
+					\hline
+					broker& low& low\\
+					\hline
+					redundant broker& high& high\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\paragraph{Chosen pattern} 
+			redundant broker
+			\paragraph{Reason} 
+			Added broker can help manage server nodes and easily achieve high availability. But the business background goal that the system can handle requests simultaneously with highly growing customers will implies high pressure on the broker. Redundant broker is adopted for data backup quick switch in emergency condition. 
 
 		\subsubsection{Iteration 2}
 		Chosen element: master.
