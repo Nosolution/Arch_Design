@@ -369,7 +369,7 @@
 			\paragraph{Design Concerns}
 			Fault Detection,
 			Real-time Server Detection,
-			Server Recovery,
+			Service Recovery,
 			Service Registry,
 
 			\paragraph{Alternative Patterns}
@@ -382,6 +382,10 @@
 					\multirow{1}*{Fault Detection} & Master Self-test\\
 					\hline
 					\multirow{1}*{Real-time Server Detection} & Health detection \\
+					\hline
+					\multirow{1}*{Service recovery} & Recovery from the default\\
+					\hline
+					\multirow{1}*{Service Registry} & Service find\\
 					\hline
 				\end{tabular}
 			\end{center}
@@ -433,44 +437,6 @@
 			\subparagraph{Reason} 
 			Because of the high availability requirement, the shorter fault detection time is, the higher availability would be. So we choose the Hot Spare pattern.
 
-
-			% Health detection:
-			% 	pattern name, communication pressure, storage pressure, report threshold, rate, transparent to PC
-			% 	Loading table, high, high, no, controllable, yes 
-			% 	Server warning, low, low, controllable, up to context, almost
-			% 	PC warning, no, no, uncontrollable, up to context, not
-			
-		
-
-			% Chosen pattern/tactics:
-			% 	Master Self-test:
-			% 		Hot spare
-			% 	Chosen reason: 
-
-			% 	Health detection:
-			% 		Loading table
-				
-			% 	Fast restart:
-					
-				
-			% 	Transparency to PC:
-			% 		...
-				
-			% 	Data Recovery:
-			% 		...
-				
-			% 	Service Registry:
-			% 		...
-				
-			% 	Locating nodes:
-			% 		... 
-
-			% 	Resource allocation:
-			% 		...
-
-			% 	Resource collection:
-			% 		... 
-
 				Horizontal extension:
 					...
 			% 服务恢复
@@ -517,9 +483,9 @@
 							\hline
 							pattern name & Communication Loading & standby Processer Loading & Recovery Speed\\
 							\hline
-							Active Redundancy & 1000 messages & High & > 50ms \\
+							Active Redundancy & 1000 messages & High & $>$ 50ms \\
 							\hline
-							Passive Redundancy & 1s per minute & Normal & < 1min , > 50ms \\
+							Passive Redundancy & 1s per minute & Normal & $<$ 1min , $>$ 50ms \\
 							\hline
 							Edit Log 	& None & None & >1min\\
 							\hline
