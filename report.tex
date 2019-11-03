@@ -502,12 +502,45 @@
 			The decomposition view represents the template module in the C4 system , and to exercise the variation points , you are recommended to run the server node. With the sync-request (like fetching user basic information , setting up a new session)  and async-request (conflict between the different sessions) , you could catch the key points in the master.
 			\paragraph{Section 5: Rationale}
 			The PC agents communicate with C4 system across the WAN. 
-			Master node stands for the whole manager of C4 system . That is ,  the master node uses the loading table to temporarily record the load status of all subordinate slave server clusters, and can timely alarm and resource reallocation. The master node also contains a protocol subnode, which is mainly used to help the master node process user requests. After the agents send the request, they will first be parsed by the master node to inform the agents of the required service node location, and then the agents will send the request to the target server.	
+			Master node stands for the whole manager of C4 system . That is ,the master node uses the loading table to temporarily record the load status of all subordinate slave server clusters, \\
+			and can timely alarm and resource reallocation. The master node also contains a protocol subnode, which is mainly used to help the master node process user requests. After the agents send the request, \\
+			they will first be parsed by the master node to inform the agents of the required service node location, and then the agents will send the request to the target server.	
 			The keeper is responsible for asynchronous event processing and session saving between server nodes. Use Lock Manager to allocate locks and save contexts through context storage.
-			The server node is mainly responsible for periodically reporting heart beat status to the master node, and can perform hot backup between nodes. Please note that one server node here is also a cluster. In our design, one cluster is responsible for a certain range. The service (similar to the microservices architecture), and the leader is elected by the vote inside the cluster to perform resource scheduling and service allocation to the subordinate slave. In addition, the server node also supports the processing of the protocol and async service. Responsible for the interaction of the NOSS and DS systems. The cache storage is responsible for the caching of the external DB system. Since each business request will design a query of more than a dozen data tables, considering the time loss of the cascaded query, we use the cache mechanism to The query result is cached inside the server.
+			The server node is mainly responsible for periodically reporting heart beat status to the master node, and can perform hot backup between nodes. Please note that one server node here is also a cluster.\\
+			 In our design, one cluster is responsible for a certain range. The service (similar to the microservices architecture), and the leader is elected by the vote inside the cluster to perform resource scheduling and service allocation to the subordinate slave. In addition, the server node also supports the processing of the protocol and async service. Responsible for the interaction of the NOSS and DS systems. The cache storage is responsible for the caching of the external DB system. Since each business request will design a query of more than a dozen data tables, considering the time loss of the cascaded query, we use the cache mechanism to The query result is cached inside the server.
 			
 	\subsection{Mapping Between Views}
-	TODO
+		\paragraph{Section 1: Mapping Selection}
+		After designing the first three views, we found that the deployment view and the decomposition view are very similar, so we plan to measure and show the relationship between them.
+		\paragraph{Section 2: Mapping Graph}
+		\begin{center}
+			\begin{table}[!htb]
+			\begin{tabular}{ccc}
+			\toprule  
+			Element in Deployment view & Element in Decomposition view\\
+			\midrule 
+			Masters		& Protocol,\\
+						& Loading Table\\
+			Keepers		& Lock Manager,\\
+						& Context Storage\\
+			Servers		& Leader,\\
+						& Slave,\\
+						& Potocol,\\
+						& Async Service,\\
+						& Cache Storage\\
+			Clients		& PCs / Agents\\
+			\bottomrule
+			\end{tabular}
+			\caption{Mapping Graph}
+			\end{table}
+		\end{center}
+		\paragraph{Section 3: Mapping Description}
+		It is not difficult to see that the two views (Deployment and Decomposition) of the C4 system\\
+		are almost identical at the cluster level, and all adopt the basic Master-Slave architecture mode. \\
+		On a more granular level, the Masters implementation adopts the Protocol.\\
+		And the implementation of the Keeping Table; keepers are implemented by Lock Manager and Context Storage, so the keeper has the coordination function; \\
+		the working cluster Servers are implemented by Leader, Slave, Protocol, Async Service, Cache Storage, and external systems and agents. Interact. \\
+		In addition, Clients are implemented by multiple PC physical machines.\\
 
 	\subsection{Rationale}
 	Explain what decision we have made in our views.
@@ -518,6 +551,18 @@
 	\section{Personal Remarks}
 	\subsection{Statement of ...}
 	\subsection{Statement of ...}
-	\subsection{Statement of ...}
+	\subsection{Statement of Fangming Lu}
+	\paragraph{1: ADD experience}
+		In the process of using ADD, special attention should be paid to the selection of ASR, \\
+	because it will affect the final result. The initial ASR needs to be given in detail, taking into account the key points in the demand. \\
+	For example, the same in this C4 system. Asynchronous problems, conflict resolution problems, what kind of effects are needed to be realized at the beginning, \\
+	and can be well targeted for subsequent tactics.\\
+	In addition, in the selection process of the view, the factors that need to be considered are beyond the expectations of the beginning. \\
+	In order to get a more objective view selection, each participant in the process from product demand to release is evaluated for importance.\\
+	\paragraph{2: Contribution}
+	Participated in each iteration process, participated in the planning of the master service registration function, \\
+	imitated the typical master-slave architecture, and gave the node design, resource allocation, resource recovery, horizontal expansion of the architectural design. \\
+	Also responsible for integrity , reliability, ease of use of the Scenario design, and gives the five section design of the decomposition view\\
+
 	\subsection{Statement of ...}
 \end{document}
