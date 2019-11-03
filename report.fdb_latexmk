@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1572771037 "/Users/cengshaoxun/Programs/Arch_Design/report.tex" "/Users/cengshaoxun/Programs/Arch_Design/report.pdf" "report" 1572771093
-  "/Users/cengshaoxun/Programs/Arch_Design/report.aux" 1572771039 3317 cc9b02190dbfa54010e5eaaf7102d9c7 ""
-  "/Users/cengshaoxun/Programs/Arch_Design/report.tex" 1572771092 10869 7d7a9d5f982cbd9d51e255b3dd6c667a ""
+["pdflatex"] 1572771669 "/Users/cengshaoxun/Programs/Arch_Design/report.tex" "/Users/cengshaoxun/Programs/Arch_Design/report.pdf" "report" 1572771671
+  "/Users/cengshaoxun/Programs/Arch_Design/report.aux" 1572771671 4101 9a7ef346d0bd86646bcb101dd5ec3bd8 ""
+  "/Users/cengshaoxun/Programs/Arch_Design/report.tex" 1572771667 16301 8562e8e651d7259bd14893187e7aed48 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -90,13 +90,15 @@
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "decom_section1.png" 1572769755 134717 1a791c67fcc0fcc8682c513c0086abab ""
   "decom_section2.png" 1572769755 379366 50e598da65099c34e2f0778895f7daef ""
-  "report.aux" 1572771039 3317 cc9b02190dbfa54010e5eaaf7102d9c7 ""
-  "report.tex" 1572771092 10869 7d7a9d5f982cbd9d51e255b3dd6c667a ""
+  "deployment1.png" 1572771612 148830 1b629a5aab1eff35fd50dc915ee9ba7c ""
+  "deployment2.png" 1572771612 86542 30a0efa9a7255f9b7f230d0256d319a0 ""
+  "report.aux" 1572771671 4101 9a7ef346d0bd86646bcb101dd5ec3bd8 ""
+  "report.tex" 1572771667 16301 8562e8e651d7259bd14893187e7aed48 ""
   "share.png" 1572764896 69214 39f8a2fe8da8ffb75afd2955296d09a1 ""
   "share2.png" 1572764896 137223 225c8f5aecb9a19e818d879df4cf4ba3 ""
   (generated)
-  "report.aux"
-  "report.pdf"
   "/Users/cengshaoxun/Programs/Arch_Design/report.log"
-  "/Users/cengshaoxun/Programs/Arch_Design/report.pdf"
+  "report.aux"
   "report.log"
+  "report.pdf"
+  "/Users/cengshaoxun/Programs/Arch_Design/report.pdf"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.23)  3 NOV 2019 16:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.23)  3 NOV 2019 17:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -327,40 +327,52 @@ Overfull \hbox (2.25055pt too wide) in paragraph at lines 97--113
 <share.png, id=18, 751.80875pt x 390.45876pt>
 File: share.png Graphic file (type png)
 <use share.png>
-Package pdftex.def Info: share.png  used on input line 149.
+Package pdftex.def Info: share.png  used on input line 150.
 (pdftex.def)             Requested size: 225.54436pt x 117.13852pt.
  [4]
 <share2.png, id=23, 816.04875pt x 588.1975pt>
 File: share2.png Graphic file (type png)
 <use share2.png>
-Package pdftex.def Info: share2.png  used on input line 165.
+Package pdftex.def Info: share2.png  used on input line 166.
 (pdftex.def)             Requested size: 244.81651pt x 176.4606pt.
  [5 </Users/cengshaoxun/Programs/Arch_Design/share.png>]
-<decom_section1.png, id=28, 2214.2725pt x 1331.97626pt>
+<deployment1.png, id=28, 1227.83719pt x 688.07062pt>
+File: deployment1.png Graphic file (type png)
+<use deployment1.png>
+Package pdftex.def Info: deployment1.png  used on input line 177.
+(pdftex.def)             Requested size: 306.95854pt x 172.01723pt.
+ [6 </Users/cengshaoxun/Programs/Arch_Design/share2.png>] [7 </Users/cengshaoxun/Programs/Arch_Design/deployment1.png (PNG copy)>]
+<deployment2.png, id=37, 977.90344pt x 618.05907pt>
+File: deployment2.png Graphic file (type png)
+<use deployment2.png>
+Package pdftex.def Info: deployment2.png  used on input line 210.
+(pdftex.def)             Requested size: 293.37329pt x 185.41914pt.
+ [8]
+<decom_section1.png, id=41, 2214.2725pt x 1331.97626pt>
 File: decom_section1.png Graphic file (type png)
 <use decom_section1.png>
-Package pdftex.def Info: decom_section1.png  used on input line 176.
+Package pdftex.def Info: decom_section1.png  used on input line 222.
 (pdftex.def)             Requested size: 332.12654pt x 199.78781pt.
- [6 </Users/cengshaoxun/Programs/Arch_Design/share2.png>]
-<decom_section2.png, id=33, 5964.2825pt x 3270.2175pt>
+ [9 </Users/cengshaoxun/Programs/Arch_Design/deployment2.png (PNG copy)>]
+<decom_section2.png, id=45, 5964.2825pt x 3270.2175pt>
 File: decom_section2.png Graphic file (type png)
 <use decom_section2.png>
-Package pdftex.def Info: decom_section2.png  used on input line 182.
+Package pdftex.def Info: decom_section2.png  used on input line 228.
 (pdftex.def)             Requested size: 298.2316pt x 163.52045pt.
- [7 </Users/cengshaoxun/Programs/Arch_Design/decom_section1.png> </Users/cengshaoxun/Programs/Arch_Design/decom_section2.png>] [8] (/Users/cengshaoxun/Programs/Arch_Design/report.aux) ) 
+ [10 </Users/cengshaoxun/Programs/Arch_Design/decom_section1.png> </Users/cengshaoxun/Programs/Arch_Design/decom_section2.png>] [11] (/Users/cengshaoxun/Programs/Arch_Design/report.aux) ) 
 Here is how much of TeX's memory you used:
- 3953 strings out of 492649
- 52495 string characters out of 6129622
+ 3963 strings out of 492649
+ 52683 string characters out of 6129622
  144493 words of memory out of 5000000
- 7726 multiletter control sequences out of 15000+600000
+ 7734 multiletter control sequences out of 15000+600000
  11503 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,7n,27p,950b,229s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /Users/cengshaoxun/Programs/Arch_Design/report.pdf (8 pages, 663657 bytes).
+Output written on /Users/cengshaoxun/Programs/Arch_Design/report.pdf (11 pages, 904175 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

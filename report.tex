@@ -115,6 +115,7 @@
 	\end{center}
 
 	
+	
 
 
 	\subsection{Records of ADD iterations}
@@ -169,6 +170,51 @@
 			\paragraph{Section 5: Rationale}
 			The design problem came from the requirement "A customer can be interrupted (for technical reasons, for example) or suspended by the customer or the representative ... In any case, C4 has to manage the context that persists and can be recalled."
 			In order to do this, there should be a mechanism that stores and fetches the context. There are several options. For example, we can save the information in the agent's PC, or save in the DB provided by the third party. But both of them are infeasible. There is no persistent data caching on the agent workstations, and DB may not be changed since it is provided by the third party. So finally, we choose to save the information in the Keeper, as it is also used to synchronize the event and resolve the conflict as mentioned in the sections before.
+
+		\subsubsection{Deployment View} 
+			\paragraph{Section 1: The Primary Presentation}
+			\begin{center}
+			\includegraphics[scale=0.25]{deployment1.png}
+			\end{center}
+			\paragraph{Section 2: The Element Catalog}
+			\subparagraph{Elements and their properties}
+			\begin{itemize}
+			\item{Client} The element Clients are deployed in the physical nodes placed in the office, which is running on Windows 10 PC.
+			\item{Master} The master node of server cluster, providing functionalities such as load balancing, service registration, and service management. The master node is deployed independently to two HP9000 servers through dual hot standby mode.
+			\item{Server} Server is the node that provides business service processing capabilities in the server cluster and is deployed on multiple HP9000 servers. These server nodes are redundant nodes and provide the same business service processing functionality.
+			\item{Keeper} Distributed service coordination node, providing distributed locks and service processing context storage for server node cluster.
+			\end{itemize}
+			\subparagraph{Relations and their properties}
+			\begin{itemize}
+			\item{Client} Processing the business by communicating with the server cluster through the WAN
+			\item{Master} Clients will request the Master to obtain services list and Master will return a suitable services list for Clients based on the current load.
+			\item{Server} The actual request of Clients is directly performed with the Server, not Master; when the Server node starts, it will register the service with the Master node, keep connection with Master node during the normal service provision, and report the load status and other information to Master node; During the business processing, the Server nodes will communicate with other systems outside (including downstream subsystems, enterprise databases, billing systems, NOSS, etc.) when necessary.
+			\item{Keeper} The Server node will obtain or release the lock from Keeper; when involving business interruption or recovery, the Server node will also save or obtain the business context from Keeper.
+			\end{itemize}
+			\subparagraph{Element interfaces}
+			\begin{itemize}
+			\item{Client} End user interaction interface
+			\item{Master} Service registration interface; service list acquisition interface; load information collection interface
+			\item{Server} All business function interface; synchronous/asynchronous communication interface with external system
+			\item{Keeper} Read/Write interface of business context information; lock service interface
+			\end{itemize}
+			\subparagraph{Element behavior}
+			\begin{itemize}
+			\item{Client} Respond to end user interaction
+			\item{Master} In response to the Client's service list obtaining request, Master will generate an appropriate service list and returns according to the current cluster load situation and the predefined load balancing policy; Collecting periodic load information reports from Server nodes; If load information report of a Server node is not received within the certain period, the Server node is considered to be failed, and will be removed from the service list; Accept and process service registration requests from eht new Server nodes			
+			\item{Server} Respond to Clients' business requests; Periodically processing asynchronous responses from external systems  in the message queue; When Clients request to interrupt the current business, the Server will save the current business context in Keeper, and when Clients request to restore the current business, Server obtains the stored context information from the Keeper and returns it; For each Client's business, Server will request Keeper to lock or release lock of related system resources 			
+			\item{Keeper} Response to Servers' lock service request according to the current resources lock situation; Response to Servers' context read and write requests			
+			\end{itemize}
+			\paragraph{Section 3: Context Diagram}
+			\begin{center}
+			\includegraphics[scale=0.3]{deployment2.png}
+			\end{center}
+			\paragraph{Section 4: Variability Guide}
+			With the growth of business in the future, the number of office agents will increase, so the number of Client nodes that need to be deployed will also increase. In order to cope with the larger work load, the Server nodes will introduce more deployment nodes accordingly.
+			\paragraph{Section 5: Rationale}
+			Because of the high availability requirement of the system, the system needs to respond to the failure of the Server nodes through redundancy (including Client nodes and Server nodes). Secondly, in order to coordinate the management of distributed Server node cluster, we introduce the Master node to implement service registration and service management, and in order to solve the single point failure, Master nodes adopt the scheme of dual-system hot standby and physical node independent deployment.\\
+			Since the concurrent tasks in the normal service processing may cause problems such as configuration requests conflicts and system resource conflicts, and the requirement of saving the interrupted business context, the system needs to ensure data consistency under distributed clusters.Therefore, we introduces Keeper to provide the functionality of distributed lock, and in order to solve the problem of single point failure, Keeper nodes also adopt cluster mode and independent physical node deployment.
+
 
 		\subsubsection{Decomposition View} 
 			\paragraph{Section 1: The Primary Presentation}
