@@ -954,7 +954,8 @@
 		In addition, Clients are implemented by multiple PC physical machines.\\
 
 	\subsection{Rationale}
-	Explain what decision we have made in our views.
+	According to business goal, availabiity and scalability are of high importance. We use distrubuted architecture managed by "a master node" to meet the need of high growth rate  and scalability. In addition, master node are also a  cluster of servers, in order to be fault-tolerent. Besides, the master node will take up most of the communications in the network so a cluster rather than a single node can insure in-time data backups.
+	In addition, data consistency and usability are also desired. So a keeper that are responsible for resource lock is raised. Each server will need to apply and register the resource before any operation.
 
 	\subsection{Directory}
 
