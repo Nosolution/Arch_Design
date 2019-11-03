@@ -114,6 +114,34 @@
 		\end{table}
 	\end{center}
 
+
+	\begin{center}
+		\begin{table}[!htb]
+		\begin{tabular}{ccc}
+		\toprule  
+		Portion of Scenario & Possible Values\\
+		\midrule 
+		Source 				& The client is going to request related infomation \\
+							& from the target server , usually the important \\
+							& personal infomation\\
+		Stimulus 			& The infomation sends back to the client\\
+		Artifact 			& Client PC	\\
+		Environment 		& Query from DB , server cache and Request queue\\
+		Response 			& The server has to fetch the user request and \\
+							& conduct the related query from the data source , \\
+							& with the maintainance of the data integrity. \\
+							& To maintain the data integrity , the server \\
+							& should checkout whether the data has the \\
+							& lattest version and no other conflict \\
+							& writing conduction is on going.\\
+		Response Measure 	& The data sent back to the user\\
+							&&has to be 100 percents integrity.\\
+
+		\bottomrule
+		\end{tabular}
+		\caption{Integrity Scenario}
+		\end{table}
+	\end{center}
 	
 	
 
