@@ -69,6 +69,53 @@
 		\end{table}
 	\end{center}
 
+	\begin{center}
+		\begin{table}[!htb]
+		\begin{tabular}{ccc}
+		\toprule  
+		Portion of Scenario & Possible Values\\
+		\midrule 
+		Source & End users and internal systems.\\
+		Stimulus & Many requests come at the same time.\\
+		Artifact & A waiting queue or something could  \\
+		& caching the request temporarily. A mechanism  \\
+		& to serve the request after a short interval.\\
+		Environment & In-service. \\
+		Response & The C4 should be able to deal with a large \\
+		& bunchs of requests. And after a short interval, the \\
+		& request would be processed.\\
+		Response Measure & The time taken to serve every request.\\
+		& The lateness of the processing.\\
+		\bottomrule
+		\end{tabular}
+		\caption{Performance Scenario}
+		\end{table}
+	\end{center}
+
+	\begin{center}
+		\begin{table}[!htb]
+		\begin{tabular}{ccc}
+		\toprule  
+		Portion of Scenario & Possible Values\\
+		\midrule 
+		Source & Developers.\\
+		Stimulus & Add some interface to fit for a new requirement.\\
+		& Need to improve the system to cater for the increasing \\
+		& demand resulted from the rapid growing users.\\
+		Artifact & Code, interface, components and so on.\\
+		Environment & Runtime or off-line, in the design \\
+		& process or in the maintaining process\\
+		Response & Make the modifications.\\
+		Response Measure & The effort, time and money taken\\
+		& to implement such requirement.\\
+		\bottomrule
+		\end{tabular}
+		\caption{Modification Scenario}
+		\end{table}
+	\end{center}
+
+	
+
 
 	\subsection{Records of ADD iterations}
 	
