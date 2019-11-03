@@ -369,7 +369,7 @@
 			\paragraph{Design Concerns}
 			Fault Detection,
 			Real-time Server Detection,
-			Server Recovery,
+			Service Recovery,
 			Service Registry,
 
 			\paragraph{Alternative Patterns}
@@ -382,6 +382,10 @@
 					\multirow{1}*{Fault Detection} & Master Self-test\\
 					\hline
 					\multirow{1}*{Real-time Server Detection} & Health detection \\
+					\hline
+					\multirow{1}*{Service recovery} & Recovery from the default\\
+					\hline
+					\multirow{1}*{Service Registry} & Service find\\
 					\hline
 				\end{tabular}
 			\end{center}
@@ -433,7 +437,6 @@
 			\subparagraph{Reason} 
 			Because of the high availability requirement, the shorter fault detection time is, the higher availability would be. So we choose the Hot Spare pattern.
 
-
 			% Health detection:
 			% 	pattern name, communication pressure, storage pressure, report threshold, rate, transparent to PC
 			% 	Loading table, high, high, no, controllable, yes 
@@ -473,6 +476,7 @@
 
 				% Horizontal extension:
 				% 	...
+
 			% 服务恢复
 			% 快速重启
 			\subparagraph{Alternative Fast Restart tactics}
@@ -481,11 +485,11 @@
 							\hline
 							pattern name & Replica Type & DownTime Estinamtes & Loss of Services\\
 							\hline
-							Cold Restart & Passive 		& > 2 minutes			  & yes			\\
+							Cold Restart & Passive 		& $>$ 2 minutes			  & yes			\\
 							\hline
-							Warm standby & Passive     &  > 2 minutes			  & yes			\\
+							Warm standby & Passive     &  $>$ 2 minutes			  & yes			\\
 							\hline
-							Master		 & Active		& >50ms & No\\
+							Master		 & Active		& $>$50ms & No\\
 							\hline
 						\end{tabular}
 					\end{center}
@@ -517,13 +521,13 @@
 							\hline
 							pattern name & Communication Loading & standby Processer Loading & Recovery Speed\\
 							\hline
-							Active Redundancy & 1000 messages & High & > 50ms \\
+							Active Redundancy & 1000 messages & High & $>$ 50ms \\
 							\hline
-							Passive Redundancy & 1s per minute & Normal & < 1min , > 50ms \\
+							Passive Redundancy & 1s per minute & Normal & $<$ 1min , $>$ 50ms \\
 							\hline
-							Edit Log 	& None & None & >1min\\
+							Edit Log 	& None & None & $>$1min\\
 							\hline
-							CheckPoint & None & None > 1min\\
+							CheckPoint & None & None $> $1min\\
 							\hline
 						\end{tabular}
 					\end{center}
