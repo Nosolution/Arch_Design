@@ -443,51 +443,119 @@
 				...
 		
 		\subsubsection{Iteration 3}
-		Chosen ASR: 
-		1. should resolve and merge event conflicts.
-		2. able to maintain connection context
-		Design Concerns: 
-		Resource Consistency Maintenance: Detect data conflicts, Restore inconsistent data, Prevent data conflicts
-		Context Recovery: Storage and restorage, Fault detection
+		\paragraph{Chosen ASR}
+		\begin{enumerate}
+		\item should resolve and merge event conflicts.
+		\item able to maintain connection context.
+		\end{enumerate}
+		\paragraph{Design Concerns} Resource Consistency Maintenance, Context Recovery.
+		\paragraph{Alternative Patterns}
+		\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				Design Concerns & subordinate Concerns\\
+				\hline 
+				% \multirow{rows}{width}{text}
+				\multirow{3}*{Resource Consistency Maintenance} & Detect data conflicts\\
+				\cline{2-2}
+				~ & Restore inconsistent data\\
+				\cline{2-2}
+				~ & Prevent data conflicts\\
+				\hline
+				Context Recovery & Storage and restorage\\
+				\cline{2-2}
+				~ & Fault detection\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\paragraph{Select patterns}
+		\subparagraph{Alternative Detect data conflicts tactics}
+		Discriminating parameters:\\
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				pattern name & time consumption & detection lateness\\
+				\hline
+				Data relation model& high& low\\
+				\hline
+				Multiple backups comparison& low& high\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\subparagraph{Chosen pattern} 
+		Multiple backups comparison
+		\subparagraph{Reason} 
+		The time cost of periodic data relation detection is high; Multiple backups comparison is a lazy mode and can provide high data consistency with low time cost. And there are multiple servers in keeper module, resulting to natural achievement of multiple backups.
 
-		Candidate architecture patterns/tactics:
-		Detect data conflicts:
-			pattern name, time consumption, detection lateness
-			Data relation model, high, low
-			Multiple backups comparison, low, high
-		
-		Restore inconsistent data:
-			pattern name, probability for losing data, time consumption
-			Roll back, middle, low
-			Multiple backups restore, low, high
-		
-		Prevent data conflicts:
-			pattern name, difficulty, reliability
-			Transaction, hard, high
-			Retry, simple, efficient to conditional conflicts but not internal ones
+		\subparagraph{Alternative Restore inconsistent data tactics}
+		Discriminating parameters:\\
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				pattern name & probability for losing data & time consumption\\
+				\hline
+				Roll back& middle & low\\
+				\hline
+				Multiple backups restore & low& high\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\subparagraph{Chosen pattern} 
+		Multiple backups restore
+		\subparagraph{Reason} 
+		Multiple backups restore can solve the occasional mistake, which provides low probability for data loss. And there are multiple servers in keeper module, resulting to natural achievement of multiple backups.
 
-		Storage and restore:
-			pattern name
-			context storage
+		\subparagraph{Alternative Prevent data conflicts tactics}
+		Discriminating parameters:\\
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				pattern name & difficulty & reliability\\
+				\hline
+				Transaction & hard & high\\
+				\hline
+				Retry & simple & low\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\subparagraph{Chosen pattern} 
+		Multiple backups restore
+		\subparagraph{Reason} 
+		Retry is unreliable because it doesn't work for the internal design faults.
 
-		Fault detection:
-			pattern name, able to detect fault
-			Redundant backup, yes
-			No redundant, no
-		
-		
-		Chosen patterns/tactics:
-		Detect data conflicts:Multiple backups comparison
-		reason: There are multiple servers in keeper module, resulting to natural achievement of multiple backups.   
+		\subparagraph{Alternative Storage and restore tactics}
+		Discriminating parameters:\\
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				pattern name\\
+				\hline
+				context storage\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\subparagraph{Chosen pattern} 
+		context storage
+		\subparagraph{Reason} 
+		There are no other available tactics.
 
-		Restore inconsistent data: Multiple backups restore
-		reason: The same as above.
-
-		Prevent data conflicts: Transaction
-		reason: Retry is unreliable.
-
-		Fault detection: Redundant backup
-		reason: Redundant backups are necessary.
+		\subparagraph{Alternative Fault detection tactics}
+		Discriminating parameters:\\
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				pattern name & fault detection ability\\
+				\hline
+				Redundant backup & yes\\
+				\hline
+				No redundant& no\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\subparagraph{Chosen pattern} 
+		Redundant backup
+		\subparagraph{Reason} 
+		Redundant backups are necessary.
 
 		\subsubsection{Iteration 4}
 		Chosen ASR: 
