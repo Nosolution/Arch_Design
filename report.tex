@@ -9,7 +9,7 @@
 \usepackage{diagbox}
 \usepackage{tabularx}
 \usepackage{graphicx}
-% \usepackage[top=3cm,bottom=2cm,left=2cm,right=2cm]{geometry} % 页边距
+\usepackage[top=3cm,bottom=2cm,left=2cm,right=2cm]{geometry} % 页边距
 \title{Software System Design-Architecture\\Assignment 3\\C4 System Architecture Design}
 \author{4 people}
 
@@ -25,7 +25,7 @@
 		\item {Modification}
 		\item {Scalability}
 		\item {Interoperability}
-		\item {Consistancy}
+		\item {Consistency}
 		\item {Integrity}
 		\item {Usability}
 	\end{itemize}
@@ -212,7 +212,7 @@
 		\toprule  
 		Portion of Scenario & Possible Values\\
 		\midrule 
-		Source 				& The client is going to request related infomation \\
+		Source 				& The client is going to request related information \\
 							& from the target server , usually the important \\
 							& personal infomation\\
 		Stimulus 			& The infomation sends back to the client\\
@@ -220,10 +220,10 @@
 		Environment 		& Query from DB , server cache and Request queue\\
 		Response 			& The server has to fetch the user request and \\
 							& conduct the related query from the data source,\\
-							& with the maintainance of the data integrity. \\
+							& with the maintenance of the data integrity. \\
 							& To maintain the data integrity , the server \\
 							& should checkout whether the data has the \\
-							& lattest version and no other conflict \\
+							& latest version and no other conflict \\
 							& writing conduction is on going.\\
 		Response Measure 	& The data sent back to the user\\
 							& has to be 100 percents integrity.\\
@@ -245,12 +245,12 @@
 		Artifact 			& Master server , keeper\\
 		Environment 		& Network connection , agent requests \\
 		Response 			& The server should detect the specific \\
-							& server that is overloadded, \\
+							& server that is overloaded, \\
 							& and reallocate the request to other leisure node;\\
 							& The keeper should arrange the request queue to ensure \\
-							& the syncronize the data flow in the process ,\\
+							& the synchronize the data flow in the process ,\\
 							& ensuring the data is always correct.\\
-		Response Measure 	& Load balance , horizontal expansion and reqeust queue \\
+		Response Measure 	& Load balance , horizontal expansion and request queue \\
 							& to resolve the high concurrency\\
 
 
@@ -266,19 +266,19 @@
 		\toprule  
 		Portion of Scenario & Possible Values\\
 		\midrule 
-		Source 				& One agent somhow choose to save the session and \\
+		Source 				& One agent somehow choose to save the session and \\
 							& return back to continue the session.\\
 		Stimulus 			& The system is going to save the context of the \\
 							& current session of agents.\\
 		Artifact 			& A session which represents the current \\
-							& state of both agents' infomation , \\
+							& state of both agents' information , \\
 							& session attributes and so on.\\
 		Environment 		& keeper \\
 		Response 			& The keeper reply the saving request \\
-							& and put the session infomation to the \\
+							& and put the session information to the \\
 							& base storage in keeper's cluster , \\
 							& and set back the session identification to agents.\\
-		Response Measure 	& Set up local storages which is reponsible of saving sessions\\
+		Response Measure 	& Set up local storage which is responsible of saving sessions\\
 							&  in the server of keeper and  \\
 							& arrange the location of the storage.\\
 		\bottomrule
@@ -396,7 +396,7 @@
 		1. should resolve and merge event conflicts.
 		2. able to maintain connection context
 		Design Concerns: 
-		Resource Consistancy Maintenance: Detect data conflicts, Restore unconsistant data, Prevent data conflicts
+		Resource Consistency Maintenance: Detect data conflicts, Restore inconsistent data, Prevent data conflicts
 		Context Recovery: Storage and restorage, Fault detection
 
 		Candidate architecture patterns/tactics:
@@ -405,8 +405,8 @@
 			Data relation model, high, low
 			Multiple backups comparison, low, high
 		
-		Restore unconsistant data:
-			pattern name, probability for lossing data, time consumption
+		Restore inconsistent data:
+			pattern name, probability for losing data, time consumption
 			Roll back, middle, low
 			Multiple backups restore, low, high
 		
@@ -415,7 +415,7 @@
 			Transaction, hard, high
 			Retry, simple, efficient to conditional conflicts but not internal ones
 
-		Storage and restorage:
+		Storage and restore:
 			pattern name
 			context storage
 
@@ -429,7 +429,7 @@
 		Detect data conflicts:Multiple backups comparison
 		reason: There are multiple servers in keeper module, resulting to natural achievement of multiple backups.   
 
-		Restore unconsistant data: Multiple backups restore
+		Restore inconsistent data: Multiple backups restore
 		reason: The same as above.
 
 		Prevent data conflicts: Transaction
@@ -476,7 +476,7 @@
 		reason: retry is not necessary.
 
 		Satisfy interface: Distributed protocol
-		reason: Introducing special will lead to a series problems about data consistancy. Cannot bing more pressure to Master module which is the main entrance of the system.
+		reason: Introducing special will lead to a series problems about data consistency. Cannot bring more pressure to Master module which is the main entrance of the system.
 
 
 		
@@ -487,7 +487,7 @@
 	\subsubsection{Scope and summary}
 	This documentation is built for presence, explanation and analysis of the architecture of Call Center Customer Care(C4) System, which will be employed by ** US telecommunication company. In this documentation, expression and illustration of modules and theirs relationship will be covered, but not all functions of the system are included.
 	\subsubsection{How the documentation is organized}
-	cateloge
+	catalog
 	\subsubsection{View overview}
 	4 Views are employed to illustrate the architecture, including:\\  
 	Decomposition view: The elements of this view are static modules, and connections illustrate their relationship.\\  
@@ -597,7 +597,7 @@
 			they will first be parsed by the master node to inform the agents of the required service node location, and then the agents will send the request to the target server.	
 			The keeper is responsible for asynchronous event processing and session saving between server nodes. Use Lock Manager to allocate locks and save contexts through context storage.
 			The server node is mainly responsible for periodically reporting heart beat status to the master node, and can perform hot backup between nodes. Please note that one server node here is also a cluster.\\
-			 In our design, one cluster is responsible for a certain range. The service (similar to the microservices architecture), and the leader is elected by the vote inside the cluster to perform resource scheduling and service allocation to the subordinate slave. In addition, the server node also supports the processing of the protocol and async service. Responsible for the interaction of the NOSS and DS systems. The cache storage is responsible for the caching of the external DB system. Since each business request will design a query of more than a dozen data tables, considering the time loss of the cascaded query, we use the cache mechanism to The query result is cached inside the server.
+			 In our design, one cluster is responsible for a certain range. The service (similar to the micro-services architecture), and the leader is elected by the vote inside the cluster to perform resource scheduling and service allocation to the subordinate slave. In addition, the server node also supports the processing of the protocol and async service. Responsible for the interaction of the NOSS and DS systems. The cache storage is responsible for the caching of the external DB system. Since each business request will design a query of more than a dozen data tables, considering the time loss of the cascaded query, we use the cache mechanism to The query result is cached inside the server.
 			
 	\subsection{Mapping Between Views}
 		\paragraph{Section 1: Mapping Selection}
@@ -615,7 +615,7 @@
 						& Context Storage\\
 			Servers		& Leader,\\
 						& Slave,\\
-						& Potocol,\\
+						& Protocol,\\
 						& Async Service,\\
 						& Cache Storage\\
 			Clients		& PCs / Agents\\
