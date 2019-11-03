@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.23)  3 NOV 2019 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.23)  3 NOV 2019 16:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -318,32 +318,32 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
- [2]
-<share.png, id=15, 751.80875pt x 390.45876pt>
+ [2] [3]
+<share.png, id=18, 751.80875pt x 390.45876pt>
 File: share.png Graphic file (type png)
 <use share.png>
-Package pdftex.def Info: share.png  used on input line 77.
+Package pdftex.def Info: share.png  used on input line 107.
 (pdftex.def)             Requested size: 225.54436pt x 117.13852pt.
- [3 </Users/cengshaoxun/Programs/Arch_Design/share.png>]
-<share2.png, id=21, 816.04875pt x 588.1975pt>
+ [4 </Users/cengshaoxun/Programs/Arch_Design/share.png>]
+<share2.png, id=24, 816.04875pt x 588.1975pt>
 File: share2.png Graphic file (type png)
 <use share2.png>
-Package pdftex.def Info: share2.png  used on input line 93.
+Package pdftex.def Info: share2.png  used on input line 123.
 (pdftex.def)             Requested size: 244.81651pt x 176.4606pt.
- [4 </Users/cengshaoxun/Programs/Arch_Design/share2.png>] [5] (/Users/cengshaoxun/Programs/Arch_Design/report.aux) ) 
+ [5 </Users/cengshaoxun/Programs/Arch_Design/share2.png>] [6] [7] (/Users/cengshaoxun/Programs/Arch_Design/report.aux) ) 
 Here is how much of TeX's memory you used:
- 3933 strings out of 492649
- 52171 string characters out of 6129622
- 138493 words of memory out of 5000000
- 7710 multiletter control sequences out of 15000+600000
- 9804 words of font info for 37 fonts, out of 8000000 for 9000
+ 3943 strings out of 492649
+ 52277 string characters out of 6129622
+ 141493 words of memory out of 5000000
+ 7718 multiletter control sequences out of 15000+600000
+ 11503 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,27p,605b,201s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,27p,950b,229s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /Users/cengshaoxun/Programs/Arch_Design/report.pdf (5 pages, 203368 bytes).
+Output written on /Users/cengshaoxun/Programs/Arch_Design/report.pdf (7 pages, 207584 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
