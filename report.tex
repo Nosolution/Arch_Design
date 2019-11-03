@@ -137,7 +137,7 @@
 		\end{tabular}
 		\\\\
 		Chosen pattern: redundant broker
-		Reason: Added broker can help manage server nodes and easily achieve high availability. But the business background goal that the system can handle requests simultaneously with highly growing customers will implies high pressure on the broker. Redundant broker is adopted for data back-up quick switch in emergency condition. 
+		Reason: Added broker can help manage server nodes and easily achieve high availability. But the business background goal that the system can handle requests simultaneously with highly growing customers will implies high pressure on the broker. Redundant broker is adopted for data backup quick switch in emergency condition. 
 
 		\subsubsection{Iteration 2}
 		Chosen element: master.
@@ -220,6 +220,96 @@
 
 			Horizontal extension:
 				...
+		
+		\subsubsection{Iteration 3}
+		Chosen ASR: 
+		1. should resolve and merge event conflicts.
+		2. able to maintain connection context
+		Design Concerns: 
+		Resource Consistancy Maintenance: Detect data conflicts, Restore unconsistant data, Prevent data conflicts
+		Context Recovery: Storage and restorage, Fault detection
+
+		Candidate architecture patterns/tactics:
+		Detect data conflicts:
+			pattern name, time consumption, detection lateness
+			Data relation model, high, low
+			Multiple backups comparison, low, high
+		
+		Restore unconsistant data:
+			pattern name, probability for lossing data, time consumption
+			Roll back, middle, low
+			Multiple backups restore, low, high
+		
+		Prevent data conflicts:
+			pattern name, difficulty, reliability
+			Transaction, hard, high
+			Retry, simple, efficient to conditional conflicts but not internal ones
+
+		Storage and restorage:
+			pattern name
+			context storage
+
+		Fault detection:
+			pattern name, able to detect fault
+			Redundant backup, yes
+			No redundant, no
+		
+		
+		Chosen patterns/tactics:
+		Detect data conflicts:Multiple backups comparison
+		reason: There are multiple servers in keeper module, resulting to natural achievement of multiple backups.   
+
+		Restore unconsistant data: Multiple backups restore
+		reason: The same as above.
+
+		Prevent data conflicts: Transaction
+		reason: Retry is unreliable.
+
+		Fault detection: Redundant backup
+		reason: Redundant backups are necessary.
+
+		\subsubsection{Iteration 4}
+		Chosen ASR: 
+		1.can communicate with other systems asynchronously.
+		2.can well communicate.
+		Design Concerns:
+		1.Asynchronous communication: Asynchronous requests, time-out detection
+		2.Good communication: Satisfy interface, Reduce messages.
+
+		Candidate architecture patterns/tactics:
+		Asynchronous requests:
+			pattern name, priority, customization, complexity
+			Message queue, no, no, low
+			Scheduling, yes, yes, high
+		
+		Time-out detection:
+			pattern name, report rate, complexity
+			Retry, 0.5s, middle
+			Report, 0.1s, low
+		
+		Satisfy interface:
+			pattern name, has performance bottle-neck, extra pressure
+			Distributed protocol, low, no, no
+			Special intensive protocol, high, yes, on special module
+			Master centric protocol, high, yes, on master
+		
+		Reduce messages:
+			pattern name
+			local storage
+		
+		Chosen patterns/tactics:
+		Asynchronous requests:Scheduling
+		reason: Priority is needed.
+
+		Time-out detection:
+		Time-out detection: Report
+		reason: retry is not necessary.
+
+		Satisfy interface: Distributed protocol
+		reason: Introducing special will lead to a series problems about data consistancy. Cannot bing more pressure to Master module which is the main entrance of the system.
+
+
+		
 		
 
 	\section{Final Software Architecture Documentation}
