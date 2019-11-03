@@ -8,7 +8,7 @@
 \usepackage{enumitem}
 \usepackage{diagbox}
 \usepackage{tabularx}
-\usepackage{fontspec}
+\usepackage{graphicx}
 % \usepackage[top=3cm,bottom=2cm,left=2cm,right=2cm]{geometry} % 页边距
 \title{Software System Design-Architecture\\Assignment 3\\C4 System Architecture Design}
 \author{4 people}
@@ -45,6 +45,33 @@
 	System functions, users, important background, constrains.
 	
 	\subsection{Views}
+
+		\subsubsection{Shared-Data View} 
+			\paragraph{Section 1: The Primary Presentation}
+			\begin{center}
+			\includegraphics[scale=0.3]{share.png}
+			\end{center}
+			\paragraph{Section 2: The Element Catalog}
+			\subparagraph{Elements and their properties}
+			\begin{itemize}
+			\item{Keeper} The keeper is a data storage center which holds the shared data.
+			\item{Server} The server is an entity which stores and fetches data from the Keeper. For example, when a customer temporarily terminates the process, server should save the context for a future reference.
+			\end{itemize}
+			\subparagraph{Relations and their properties}
+			During the fetching process, there may not exist the record, so there should be an exception. Also, in the saving process, to those records that already existed, saving process should be an update to the old version.
+			\subparagraph{Element interfaces}
+			The Keeper should provide the find and insert interfaces to the servers.
+			\subparagraph{Element behavior}
+			The servers save and fetch the data from the Keeper.
+			\paragraph{Section 3: Context Diagram}
+			\begin{center}
+			\includegraphics[scale=0.3]{share2.png}
+			\end{center}
+			\paragraph{Section 4: Variability Guide}
+			Because the data storage is not the only responsibility keeper takes, so in the future, it may be  divided into several more specific components, that is to say, the keeper in this view may be changed to a data repository or other data center.
+			\paragraph{Section 5: Rationale}
+			The design problem came from the requirement "A customer can be interrupted (for technical reasons, for example) or suspended by the customer or the representative ... In any case, C4 has to manage the context that persists and can be recalled."
+			In order to do this, there should be a mechanism that stores and fetches the context. There are several options. For example, we can save the information in the agent's PC, or save in the DB provided by the third party. But both of them are infeasible. There is no persistent data caching on the agent workstations, and DB may not be changed since it is provided by the third party. So finally, we choose to save the information in the Keeper, as it is also used to synchronize the event and resolve the conflict as mentioned in the sections before.
 
 	\subsection{Mapping Between Views}
 	TODO
