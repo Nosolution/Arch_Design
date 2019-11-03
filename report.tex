@@ -933,7 +933,7 @@
 		\item{Async Service} Receive the async message and rearrange the message queue to avoid the message conflict.
 		\item{Loading Table} Store the sub server location and ready to return back to agents; Used for load balance.
 		\item{Multiple backups comparison} Data is stored in a redundant manner, and each backup operates independently of the other. If inconsistent data is detected before access, the operation is considered to be in conflict
-		\item{Multiple backups restore} By comparison between independent redundant backups, the same majority of backups are used as the correct version
+
 
 	\end{itemize}
 
@@ -968,5 +968,12 @@ In a nutshell, it is useful to follow these steps. In the last phase, when I put
 	imitated the typical master-slave architecture, and gave the node design, resource allocation, resource recovery, horizontal expansion of the architectural design. \\
 	Also responsible for integrity , reliability, ease of use of the Scenario design, and gives the five section design of the decomposition view\\
 
-	\subsection{Statement of ...}
+	\subsection{Statement of Guozhao Huang}
+	\paragraph{1: ADD experience}
+	As a continuous progress of refinement in architecture design, ADD expresses its great advantages. Clearly, ADD requires us to design according to ASRs. Each iteration we need to find a way to satisfy some ASRs, not allowed to desultorily imagine. Besides, this top-down design method constrains the split of elements. Consistency of ASRs forces the element to maintain its relation with others, which will contribute to the compactness of the system. \\
+	But when applying ADD, I found it a little hard to handle the degree of decomposition. I sometimes fell into the hole of overspecification, blocking me from next iteration. So I felt that caution is necessary during iteration.
+	\paragraph{2: Contribution}
+	I participated in brainstorm of ASR specification, first iteration, health detection part of second iteration, half of the 4th iteration, handling the framework and writing beyond views part of the report and acted as a system sketch provider during iterations.\\
+	I was also the main organizer of out team, responsible to organize meetings and handle the general direction of the workflow and work assignment. I was somehow like a regulator as I liked to review and confirm if we had followed the right step and left nothing unconsidered.
+
 \end{document}
