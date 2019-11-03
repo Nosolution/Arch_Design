@@ -368,79 +368,112 @@
 			\item identification, monitoring, and elimination of processing bottle-necks
 			\end{enumerate}
 			\paragraph{Design Concerns}
-			Master Self-test,
+			Fault Detection,
 			Real-time Server Detection,
 			Server Recovery,
 			Service Registry,
 
-			Candidate architecture patterns/tactics:
-			Master Self-test:
-				pattern name, detection latency
-				Hot spare, <100ms
-				Warm spare, >1s
-				Cold spare, >5s
+			\paragraph{Alternative Patterns}
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					Design Concerns & subordinate Concerns\\
+					\hline 
+					% \multirow{rows}{width}{text}
+					\multirow{1}*{Fault Detection} & Master Self-test\\
+					\hline
+					\multirow{1}*{Real-time Server Detection} & Health detection \\
+					\hline
+				\end{tabular}
+			\end{center}
 
-			Health detection:
-				pattern name, communication pressure, storage pressure, report threshold, rate, transparent to PC
-				Loading table, high, high, no, controllable, yes 
-				Server warning, low, low, controllable, up to context, almost
-				PC warning, no, no, uncontrollable, up to context, not
+			\paragraph{Select Patterns}
+			\subparagraph{Alternative Master Self-test tactics}
+			Discriminating parameters:
+			\begin{itemize}
+				\item detection latency
+			\end{itemize}
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					pattern name & detection latency\\
+					\hline
+					Hot spare & $\leq 100$ms \\
+					\hline
+					Warm spare & $\geq 1$s\\
+					\hline
+					Cold spare & $\geq 5$s\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\subparagraph{Chosen pattern} 
+			Hot spare
+			\subparagraph{Reason} 
+			Because of the high availability requirement, the shorter fault detection time is, the higher availability would be. So we choose the Hot Spare pattern.
+
+			\subparagraph{Alternative Health detection tactics}
+			Discriminating parameters:
+			\begin{itemize}
+				\item detection latency
+			\end{itemize}
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					pattern name & detection latency\\
+					\hline
+					Hot spare & $\leq 100$ms \\
+					\hline
+					Warm spare & $\geq 1$s\\
+					\hline
+					Cold spare & $\geq 5$s\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\subparagraph{Chosen pattern} 
+			Hot spare
+			\subparagraph{Reason} 
+			Because of the high availability requirement, the shorter fault detection time is, the higher availability would be. So we choose the Hot Spare pattern.
+
+
+			% Health detection:
+			% 	pattern name, communication pressure, storage pressure, report threshold, rate, transparent to PC
+			% 	Loading table, high, high, no, controllable, yes 
+			% 	Server warning, low, low, controllable, up to context, almost
+			% 	PC warning, no, no, uncontrollable, up to context, not
 			
-			Fast restart:
-				...
-			
-			Transparency to PC:
-				...
-			
-			Data Recovery:
-				...
-			
-			Service Registry:
-				...https://docs.qq.com/doc/DVU9YdkxKZWJTQ0VY
-			
-			Locating nodes:
-				... 
+		
 
-			Resource allocation:
-				...
+			% Chosen pattern/tactics:
+			% 	Master Self-test:
+			% 		Hot spare
+			% 	Chosen reason: 
 
-			Resource collection:
-				... 
-
-			Horizontal extension:
-				...
-
-			Chosen pattern/tactics:
-				Master Self-test:
-					Hot spare
-				Chosen reason: 
-
-				Health detection:
-					Loading table
+			% 	Health detection:
+			% 		Loading table
 				
-				Fast restart:
+			% 	Fast restart:
 					
 				
-				Transparency to PC:
-					...
+			% 	Transparency to PC:
+			% 		...
 				
-				Data Recovery:
-					...
+			% 	Data Recovery:
+			% 		...
 				
-				Service Registry:
-					...
+			% 	Service Registry:
+			% 		...
 				
-				Locating nodes:
-					... 
+			% 	Locating nodes:
+			% 		... 
 
-				Resource allocation:
-					...
+			% 	Resource allocation:
+			% 		...
 
-				Resource collection:
-					... 
+			% 	Resource collection:
+			% 		... 
 
-				Horizontal extension:
-					...
+			% 	Horizontal extension:
+			% 		...
 		
 		\subsubsection{Iteration 3}
 		Chosen ASR: 
