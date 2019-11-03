@@ -468,11 +468,6 @@
 			% 服务恢复
 			% 快速重启
 			\subparagraph{Alternative scalability tactics}
-					Discriminating parameters:\\
-					\begin{itemize}
-						\item a
-						\item b
-					\end{itemize}
 					\begin{center}
 						\begin{tabular}{|c|c|c|}
 							\hline
@@ -492,11 +487,6 @@
 					warm stand by could restart the service in a short time.
 			% 对PC透明性
 			\subparagraph{Alternative scalability tactics}
-					Discriminating parameters:\\
-					\begin{itemize}
-						\item a
-						\item b
-					\end{itemize}
 					\begin{center}
 						\begin{tabular}{|c|c|c|}
 							\hline
@@ -514,11 +504,6 @@
 					It could help to handle the failure in a short period without high cost.
 			% 数据恢复
 			\subparagraph{Alternative scalability tactics}
-					Discriminating parameters:\\
-					\begin{itemize}
-						\item a
-						\item b
-					\end{itemize}
 					\begin{center}
 						\begin{tabular}{|c|c|c|}
 							\hline
@@ -526,16 +511,92 @@
 							\hline
 							Active Redundancy & 1000 messages & High & > 50ms \\
 							\hline
-							Passive Redundancy & 1s per minute 
+							Passive Redundancy & 1s per minute & Normal & < 1min , > 50ms \\
+							\hline
+							Edit Log 	& None & None & >1min\\
+							\hline
+							CheckPoint & None & None > 1min\\
 							\hline
 						\end{tabular}
 					\end{center}
 					\subparagraph{Chosen pattern} 
-					client handle failure 
+					Edit Log
 					\subparagraph{Reason} 
-					It could help to handle the failure in a short period without high cost.
-			% 数据恢复
+					Low memory cost and high accuracy when we are going to recovery the data , plus the security of the data.
+					
+					%服务注册
+					% 节点定位
+					\subparagraph{Alternative scalability tactics}
+					\begin{center}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							pattern name & Querying Speed & Accuracy\\
+							\hline
+							Server cache & quick & mid\\
+							\hline
+							SQL in DB & slow & high\\
+							\hline
+						\end{tabular}
+					\end{center}
+					\subparagraph{Chosen pattern} 
+					Server cache
+					\subparagraph{Reason} 
+					High speed in querying the request data since we do not need to execute the sql for the high cost.
+% 节点定位
+					\subparagraph{Alternative scalability tactics}
+					\begin{center}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							pattern name & Querying Speed & Accuracy\\
+							\hline
+							Server cache & quick & mid\\
+							\hline
+							SQL in DB & slow & high\\
+							\hline
+						\end{tabular}
+					\end{center}
+					\subparagraph{Chosen pattern} 
+					Server cache
+					\subparagraph{Reason} 
+					High speed in querying the request data since we do not need to execute the sql for the high cost.
+			
+					% 资源分配
+					\subparagraph{Alternative scalability tactics}
+					\begin{center}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							pattern name & Copying speed & Persist Volumn & Conflict Resistence & Timeout\\
+							\hline
+							Warm backup & quick speed & small & mid & 0.1s\\
+							\hline
+							Cold backup & mid speed & Big storage & can not avoid data conflict & 0.5s\\
+							\hline
+							Master	& quick speed & Mid Storage & avoid data conflict & 5s\\
+							\hline
+						\end{tabular}
+					\end{center}
+					\subparagraph{Chosen pattern} 
+					warm backup
+					\subparagraph{Reason} 
+					High speed for warm backup could restart another server to replace the service with low time cost.
 
+					% 资源回收
+					\subparagraph{Alternative scalability tactics}
+					\begin{center}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							pattern name & Timt out & Restart timeout & Replace timeout\\
+							\hline
+							Clean directly & 1s & 1s & 1s\\
+							\hline
+							Lazy deletion & 0.01s & 0.01s & 2s\\
+							\hline
+						\end{tabular}
+					\end{center}
+					\subparagraph{Chosen pattern} 
+					warm backup
+					\subparagraph{Reason} 
+					High speed for warm backup could restart another server to replace the service with low time cost.
 
 		\subsubsection{Iteration 3}
 		Chosen ASR: 
