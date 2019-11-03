@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1572769921 "/Users/cengshaoxun/Programs/Arch_Design/report.tex" "/Users/cengshaoxun/Programs/Arch_Design/report.pdf" "report" 1572769923
-  "/Users/cengshaoxun/Programs/Arch_Design/report.aux" 1572769923 3134 4e04e0f9cb121e794b554900fca1f4c5 ""
-  "/Users/cengshaoxun/Programs/Arch_Design/report.tex" 1572769918 9573 ca350a04244e6c3e07da7d38f5178263 ""
+["pdflatex"] 1572770221 "/Users/cengshaoxun/Programs/Arch_Design/report.tex" "/Users/cengshaoxun/Programs/Arch_Design/report.pdf" "report" 1572770223
+  "/Users/cengshaoxun/Programs/Arch_Design/report.aux" 1572770223 3124 1c6d845e2f61220b9f2d537d80fa6b0f ""
+  "/Users/cengshaoxun/Programs/Arch_Design/report.tex" 1572770219 9260 66c0903b00c16c9c1a7b66d79472de6c ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -90,13 +90,13 @@
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "decom_section1.png" 1572769755 134717 1a791c67fcc0fcc8682c513c0086abab ""
   "decom_section2.png" 1572769755 379366 50e598da65099c34e2f0778895f7daef ""
-  "report.aux" 1572769923 3134 4e04e0f9cb121e794b554900fca1f4c5 ""
-  "report.tex" 1572769918 9573 ca350a04244e6c3e07da7d38f5178263 ""
+  "report.aux" 1572770223 3124 1c6d845e2f61220b9f2d537d80fa6b0f ""
+  "report.tex" 1572770219 9260 66c0903b00c16c9c1a7b66d79472de6c ""
   "share.png" 1572764896 69214 39f8a2fe8da8ffb75afd2955296d09a1 ""
   "share2.png" 1572764896 137223 225c8f5aecb9a19e818d879df4cf4ba3 ""
   (generated)
   "/Users/cengshaoxun/Programs/Arch_Design/report.log"
-  "report.aux"
   "report.pdf"
-  "report.log"
   "/Users/cengshaoxun/Programs/Arch_Design/report.pdf"
+  "report.log"
+  "report.aux"

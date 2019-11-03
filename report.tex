@@ -50,27 +50,21 @@
 		\toprule  
 		Portion of Scenario & Possible Values\\
 		\midrule 
-		Source & A system that wants to fetch or modify the data\\
+		Source & End users and internal systems.\\
 		\\
-		Stimulus & Requests to access and overwrite the original data\\
+		Stimulus & Failure and fault: Service off-line, error, crash ans so on.\\
 		\\
-		Artifact & A database, container or some other repository that \\
-		& holds the data\\
+		Artifact & Back up, spare, communication channels.\\
 		\\
-		Environment & Runtime, in service. And also, maybe parts of \\
-		& the whole system are out of the service, \\
-		& but the database is still on.\\
+		Environment & Runtime, startup and shutdown, in-service.\\
 		\\
-		Response & Make sure the data would be changed in a right way. \\
-		& May do the following things:\\
-		& 1. Check whether the request is valid. \\
-		& e.g. authenticated and authorized.\\
-		& 2. Check whether the data is valid\\
-		& e.g. if there is a software bug or hardware bug.\\
-		& that make it wrong or meaningless.\\
+		Response & Able to response for many requests at the same time.\\
+		& Detect the fault. \\
+		& Recover from the fault. \\
+		& Prevent the fault. \\		
 		\bottomrule
 		\end{tabular}
-		\caption{Data Integrity General Scenario}
+		\caption{Availability Scenario}
 		\end{table}
 	\end{center}
 
