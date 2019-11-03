@@ -138,12 +138,12 @@ INPUT /usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /Users/cengshaoxun/Programs/Arch_Design/share.png
 INPUT /Users/cengshaoxun/Programs/Arch_Design/share.png
 INPUT /Users/cengshaoxun/Programs/Arch_Design/share.png
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /Users/cengshaoxun/Programs/Arch_Design/share2.png
 INPUT /Users/cengshaoxun/Programs/Arch_Design/share2.png
 INPUT /Users/cengshaoxun/Programs/Arch_Design/share2.png

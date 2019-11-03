@@ -18,8 +18,33 @@
 	\newpage
 	\section{Deploying ADD method in C4 Design}
 	\subsection{Important Non-functional Requirements}
-	The important non-functional requirements we identified are listed bellow:\\
-	...
+	The important non-functional requirements we identified are listed bellow:
+	\begin{itemize}
+		\item {Availability}
+		\item {Performance}
+		\item {Modification}
+		\item {Scalability}
+		\item {Interoperability}
+		\item {Consistancy}
+		\item {Integrity}
+		\item {Usability}
+	\end{itemize}
+	The constrains we identified are listed bellow:
+
+	\begin{itemize}
+		\item No persistent data caching on the agent workstations to limit the implications of local failures.
+		\item No DBs at office locations.
+		\item No administrators at local offices.
+		\item No maintenance down-time.
+		\item The middle layer server cluster tuned for performance.
+		\item The back end tuned for DB performance.
+		\item Well engineered operations architecture.
+		\item High availability cannot be achieved by utilizing fault-tolerant hardware (this option is not
+		economically viable).
+	\end{itemize}
+	The scenarios are listed as following:
+	
+
 	\subsection{Records of ADD iterations}
 	
 
