@@ -591,13 +591,36 @@
 							\hline
 							Lazy deletion & 0.01s & 0.01s & 2s\\
 							\hline
+							Resource counter & 0.01s - 0.1s & 0.01 & 1s \\
+							\hline
 						\end{tabular}
 					\end{center}
 					\subparagraph{Chosen pattern} 
-					warm backup
+					Resource counter
 					\subparagraph{Reason} 
-					High speed for warm backup could restart another server to replace the service with low time cost.
-
+					When the resource is going to be released , the resource counter reduce 1 until it reaches the 0.\\
+					if it is 0 then the resource has to be remove. In this way , the resource could maintain the status for a specific period.
+				
+				% 资源分配
+				\subparagraph{Alternative scalability tactics}
+				\begin{center}
+					\begin{tabular}{|c|c|c|}
+						\hline
+						pattern name & Performance & Load Capacity\\
+						\hline
+						Server Link pool & Place the new server in a short time & Mid balance\\
+						\hline
+						Do with service category & paral-deveplop & Not balance\\
+						\hline
+						Do with service load	& good perform and difficult to complement & hight Balance\\
+						\hline
+					\end{tabular}
+				\end{center}
+				\subparagraph{Chosen pattern} 
+				do with service load
+				\subparagraph{Reason} 
+				the master allocate the service according to its load , which help to maintain the load balance and embrace the best perfromance
+				
 		\subsubsection{Iteration 3}
 		\paragraph{Chosen ASR}
 		\begin{enumerate}
