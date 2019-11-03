@@ -131,13 +131,13 @@
 		\subsubsection{Decomposition View} 
 			\paragraph{Section 1: The Primary Presentation}
 			\begin{center}
-			% \includegraphics[scale=0.3]{https://i.loli.net/2019/11/03/FhGD3rlzqpYj6s1.png}
+			\includegraphics[scale=0.15]{decom_section1.png}
 			\end{center}
 			\paragraph{Section 2: The Element Catalog}
 			The C4 system is consisted of these important sub-module to decompose:  master node , normal server node , storage node , configuration node , load balance node. To resolve the normal phone request (contains the sync-request and async-request) , the normal server nodes are responsible to tackle the service from customers. Moreover , the storage nodes have to save the current session , cache the query on DB , and other cache to the locks . Load balance node has to detect the load in the whole system , and reschedule the load accordingly. 
 			\paragraph{Section 3: Context Diagram}
 			\begin{center}
-			% \includegraphics[scale=0.3]{https://i.loli.net/2019/11/03/AiSygsqvFdRPCMQ.png}
+			\includegraphics[scale=0.05]{decom_section2.png}
 			\end{center}
 			\paragraph{Section 4: Variability Guide}
 			The decomposition view represents the template module in the C4 system , and to exercise the variation points , you are recommended to run the server node. With the sync-request (like fetching user basic information , setting up a new session)  and async-request (conflict between the different sessions) , you could catch the key points in the master.
