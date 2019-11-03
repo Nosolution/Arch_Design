@@ -502,6 +502,14 @@
 
 	\subsection{System Overview}
 	System functions, users, important background, constrains.
+	\paragraph{System functions}
+	The system mainly supports communication with customers, including requesting new services, changing existing service configurations, or reporting problems.
+	\paragraph{Users}}
+	Users of the system include office agents, auditors, system administrators, operations and maintenance personnel, and infrastructure support personnel.
+	\paragraph{Important Background}
+	The initial use of the system is for a small group of customers, but it is possible that with the growth of the business, the customer base will develop into a large network; Meanwhile, the system needs to communicate and interact with external systems (NOSS, Enterprise DBs, downstream subsystems, etc.) to complete the whole business process. System services are always online and need to provide near 7*24 hour accessibility.
+	\paragraph{Constrains}
+	Due to the high traffic and high concurrency of system services, the system needs to provide a good operation and maintenance structure for end users. The database cannot be deployed to the agent's office; In consideration of economic cost, expensive hardware cannot be used to realize fault tolerance.
 	
 	\subsection{Views}
 		\subsubsection{Decomposition View} 
