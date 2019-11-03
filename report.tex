@@ -219,7 +219,7 @@
 		Artifact 			& Client PC	\\
 		Environment 		& Query from DB , server cache and Request queue\\
 		Response 			& The server has to fetch the user request and \\
-							& conduct the related query from the data source , \\
+							& conduct the related query from the data source,\\
 							& with the maintainance of the data integrity. \\
 							& To maintain the data integrity , the server \\
 							& should checkout whether the data has the \\
@@ -506,7 +506,37 @@
 			Since the concurrent tasks in the normal service processing may cause problems such as configuration requests conflicts and system resource conflicts, and the requirement of saving the interrupted business context, the system needs to ensure data consistency under distributed clusters.Therefore, we introduces Keeper to provide the functionality of distributed lock, and in order to solve the problem of single point failure, Keeper nodes also adopt cluster mode and independent physical node deployment.
 			
 	\subsection{Mapping Between Views}
-	TODO
+		\paragraph{Section 1: Mapping Selection}
+		After designing the first three views, we found that the deployment view and the decomposition view are very similar, so we plan to measure and show the relationship between them.
+		\paragraph{Section 2: Mapping Graph}
+		\begin{center}
+			\begin{table}[!htb]
+			\begin{tabular}{ccc}
+			\toprule  
+			Element in Deployment view & Element in Decomposition view\\
+			\midrule 
+			Masters		& Protocol,\\
+						& Loading Table\\
+			Keepers		& Lock Manager,\\
+						& Context Storage\\
+			Servers		& Leader,\\
+						& Slave,\\
+						& Potocol,\\
+						& Async Service,\\
+						& Cache Storage\\
+			Clients		& PCs / Agents\\
+			\bottomrule
+			\end{tabular}
+			\caption{Mapping Graph}
+			\end{table}
+		\end{center}
+		\paragraph{Section 3: Mapping Description}
+		It is not difficult to see that the two views (Deployment and Decomposition) of the C4 system\\
+		are almost identical at the cluster level, and all adopt the basic Master-Slave architecture mode. \\
+		On a more granular level, the Masters implementation adopts the Protocol.\\
+		And the implementation of the Keeping Table; keepers are implemented by Lock Manager and Context Storage, so the keeper has the coordination function; \\
+		the working cluster Servers are implemented by Leader, Slave, Protocol, Async Service, Cache Storage, and external systems and agents. Interact. \\
+		In addition, Clients are implemented by multiple PC physical machines.\\
 
 	\subsection{Rationale}
 	Explain what decision we have made in our views.
@@ -516,7 +546,21 @@
 
 	\section{Personal Remarks}
 	\subsection{Statement of ...}
-	\subsection{Statement of ...}
-	\subsection{Statement of ...}
+	\subsection{Statement of Peihong Chen}
+	ADD is a practical software architecture design method, the overall design is a top-down progressive refinement, and after several rounds of iteration, it makes the software designers to progressively deeper understanding on the system. Each iteration is independent and interrelated, because each round of iteration will only focused on one or a few specific quality attributes, which can avoid unnecessary interference; In addition, subsequent iterations can also conduct a deeper analysis based on the previous iteration, so there is some relationship between iterations. The cycle continues until the architectural elements and responsibilities of the entire system are clear.
+	During this assignment, in the early stage team members participated in functional and non-functional requirements analysis and ASRs identification. Then, in all the four iterations, team members discussed together, exchanged opinions and made decisions on some vague points. My main contributions are scalability, interoperability and data consistency of stimulation corresponding sequence, the second iteration of service recovery (including quick restart, transparent to PC, and data recovery) and resources in the third iteration consistency (including detecting data conflicts, restore data inconsistency, and prevention of data). In addition, in the documentation process, my main contribution is  writing the deployment view and working with other team members to complete the cross-view.
+	\subsection{Statement of Fangming Lu}
+	\paragraph{1: ADD experience}
+		In the process of using ADD, special attention should be paid to the selection of ASR, \\
+	because it will affect the final result. The initial ASR needs to be given in detail, taking into account the key points in the demand. \\
+	For example, the same in this C4 system. Asynchronous problems, conflict resolution problems, what kind of effects are needed to be realized at the beginning, \\
+	and can be well targeted for subsequent tactics.\\
+	In addition, in the selection process of the view, the factors that need to be considered are beyond the expectations of the beginning. \\
+	In order to get a more objective view selection, each participant in the process from product demand to release is evaluated for importance.\\
+	\paragraph{2: Contribution}
+	Participated in each iteration process, participated in the planning of the master service registration function, \\
+	imitated the typical master-slave architecture, and gave the node design, resource allocation, resource recovery, horizontal expansion of the architectural design. \\
+	Also responsible for integrity , reliability, ease of use of the Scenario design, and gives the five section design of the decomposition view\\
+
 	\subsection{Statement of ...}
 \end{document}
