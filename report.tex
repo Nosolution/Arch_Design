@@ -306,7 +306,8 @@
 			\end{itemize}
 			\subparagraph{Relations and their properties}
 			\begin{itemize}
-			\item{Client} Processing the business by communicating with the server cluster through the WAN
+			\item{Client} Processing the business by communicating
+			 with the server cluster through the WAN
 			\item{Master} Clients will request the Master to obtain services list and Master will return a suitable services list for Clients based on the current load.
 			\item{Server} The actual request of Clients is directly performed with the Server, not Master; when the Server node starts, it will register the service with the Master node, keep connection with Master node during the normal service provision, and report the load status and other information to Master node; During the business processing, the Server nodes will communicate with other systems outside (including downstream subsystems, enterprise databases, billing systems, NOSS, etc.) when necessary.
 			\item{Keeper} The Server node will obtain or release the lock from Keeper; when involving business interruption or recovery, the Server node will also save or obtain the business context from Keeper.
