@@ -658,6 +658,17 @@
 
 	\subsection{Directory}
 
+	\begin{itemize}
+		\item{Client} Respond to end user interaction
+		\item{Master} In response to the Client's service list obtaining request, Master will generate an appropriate service list and returns according to the current cluster load situation and the predefined load balancing policy; Collecting periodic load information reports from Server nodes; If load information report of a Server node is not received within the certain period, the Server node is considered to be failed, and will be removed from the service list; Accept and process service registration requests from eht new Server nodes			
+		\item{Server} Respond to Clients' business requests; Periodically processing asynchronous responses from external systems  in the message queue; When Clients request to interrupt the current business, the Server will save the current business context in Keeper, and when Clients request to restore the current business, Server obtains the stored context information from the Keeper and returns it; For each Client's business, Server will request Keeper to lock or release lock of related system resources 			
+		\item{Keeper} Response to Servers' lock service request according to the current resources lock situation; Response to Servers' context read and write requests			
+		\item{protocol} Mainly used to help the master node process user requests. After the agents send the request
+		\item{lockManager} Allocate locks and save contexts through context storage
+		\item{Cache} When the response messages of other systems reach the system, they will be cached in the system
+		\item{Async Service} Receive the async message and rearrange the message queue to avoid the message conflict.
+		\item{Loading Table} Store the sub server loaction and ready to return back to agents; Used for load balance.
+	\end{itemize}
 
 	\section{Personal Remarks}
 	\subsection{Statement of ...}
