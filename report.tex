@@ -441,7 +441,78 @@
 
 				Horizontal extension:
 					...
-		
+			% 服务恢复
+			% 快速重启
+			\subparagraph{Alternative scalability tactics}
+					Discriminating parameters:\\
+					\begin{itemize}
+						\item a
+						\item b
+					\end{itemize}
+					\begin{center}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							pattern name & Replica Type & DownTime Estinamtes & Loss of Services\\
+							\hline
+							Cold Restart & Passive 		& > 2 minutes			  & yes			\\
+							\hline
+							Warm standby & Passive     &  > 2 minutes			  & yes			\\
+							\hline
+							Master		 & Active		& >50ms & No\\
+							\hline
+						\end{tabular}
+					\end{center}
+					\subparagraph{Chosen pattern} 
+					Warm standby
+					\subparagraph{Reason} 
+					warm stand by could restart the service in a short time.
+			% 对PC透明性
+			\subparagraph{Alternative scalability tactics}
+					Discriminating parameters:\\
+					\begin{itemize}
+						\item a
+						\item b
+					\end{itemize}
+					\begin{center}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							pattern name & Timeout location\\
+							\hline
+							client handle failure & client \\
+							\hline
+							server handle failure & server\\ 
+							\hline
+						\end{tabular}
+					\end{center}
+					\subparagraph{Chosen pattern} 
+					client handle failure 
+					\subparagraph{Reason} 
+					It could help to handle the failure in a short period without high cost.
+			% 数据恢复
+			\subparagraph{Alternative scalability tactics}
+					Discriminating parameters:\\
+					\begin{itemize}
+						\item a
+						\item b
+					\end{itemize}
+					\begin{center}
+						\begin{tabular}{|c|c|c|}
+							\hline
+							pattern name & Communication Loading & standby Processer Loading & Recovery Speed\\
+							\hline
+							Active Redundancy & 1000 messages & High & > 50ms \\
+							\hline
+							Passive Redundancy & 1s per minute 
+							\hline
+						\end{tabular}
+					\end{center}
+					\subparagraph{Chosen pattern} 
+					client handle failure 
+					\subparagraph{Reason} 
+					It could help to handle the failure in a short period without high cost.
+			% 数据恢复
+
+
 		\subsubsection{Iteration 3}
 		Chosen ASR: 
 		1. should resolve and merge event conflicts.
