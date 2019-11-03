@@ -471,11 +471,11 @@
 			% 	Resource collection:
 			% 		... 
 
-				Horizontal extension:
-					...
+				% Horizontal extension:
+				% 	...
 			% 服务恢复
 			% 快速重启
-			\subparagraph{Alternative scalability tactics}
+			\subparagraph{Alternative Fast Restart tactics}
 					\begin{center}
 						\begin{tabular}{|c|c|c|c|}
 							\hline
@@ -494,7 +494,7 @@
 					\subparagraph{Reason} 
 					warm stand by could restart the service in a short time.
 			% 对PC透明性
-			\subparagraph{Alternative scalability tactics}
+			\subparagraph{Alternative Transparency to PC tactics}
 					\begin{center}
 						\begin{tabular}{|c|c|c|}
 							\hline
@@ -511,7 +511,7 @@
 					\subparagraph{Reason} 
 					It could help to handle the failure in a short period without high cost.
 			% 数据恢复
-			\subparagraph{Alternative scalability tactics}
+			\subparagraph{Alternative Data Recovery tactics}
 					\begin{center}
 						\begin{tabular}{|c|c|c|c|}
 							\hline
@@ -534,7 +534,7 @@
 					
 					%服务注册
 					% 节点定位
-					\subparagraph{Alternative scalability tactics}
+					\subparagraph{Alternative Locating Nodes tactics}
 					\begin{center}
 						\begin{tabular}{|c|c|c|}
 							\hline
@@ -550,26 +550,9 @@
 					Server cache
 					\subparagraph{Reason} 
 					High speed in querying the request data since we do not need to execute the sql for the high cost.
-% 节点定位
-					\subparagraph{Alternative scalability tactics}
-					\begin{center}
-						\begin{tabular}{|c|c|c|}
-							\hline
-							pattern name & Querying Speed & Accuracy\\
-							\hline
-							Server cache & quick & mid\\
-							\hline
-							SQL in DB & slow & high\\
-							\hline
-						\end{tabular}
-					\end{center}
-					\subparagraph{Chosen pattern} 
-					Server cache
-					\subparagraph{Reason} 
-					High speed in querying the request data since we do not need to execute the sql for the high cost.
-			
+
 					% 资源分配
-					\subparagraph{Alternative scalability tactics}
+					\subparagraph{Alternative Resource Allocation tactics}
 					\begin{center}
 						\begin{tabular}{|c|c|c|c|c|}
 							\hline
@@ -589,7 +572,7 @@
 					High speed for warm backup could restart another server to replace the service with low time cost.
 
 					% 资源回收
-					\subparagraph{Alternative scalability tactics}
+					\subparagraph{Alternative Resource Collection tactics}
 					\begin{center}
 						\begin{tabular}{|c|c|c|c|}
 							\hline
