@@ -292,7 +292,6 @@
 
 	\subsection{Records of ADD iterations}
 		\subsubsection{Iteration 1}
-			\paragraph{Chosen element} the whole system.
 			\paragraph{Chosen ASR}
 			\begin{enumerate}
 			\item Near 7x24 availability.
@@ -360,16 +359,19 @@
 
 
 		\subsubsection{Iteration 2}
-		Chosen ASR: 
-		1.can handle a batch of requests simultaneously and can support multiple agents.
-		2.should manage a big cluster/allow for "leaner" growth
-		3.near 7x24 availability.
-		4.identification, monitoring, and elimination of processing bottle-necks
-		Design Concerns:
-		Master Self-test
-		Real-time Server Detection:Health detection
-		Server Recovery: Fast restart, Transparency to PC, Data recovery
-		Service Registry: Locating nodes, Resource allocation, Resource collection, Horizontal extension
+
+		\paragraph{Chosen ASR}
+		\begin{enumerate}
+		\item can handle a batch of requests simultaneously and can support multiple agents.
+		\item should manage a big cluster/allow for "leaner" growth
+		\item near 7x24 availability.
+		\item identification, monitoring, and elimination of processing bottle-necks
+		\end{enumerate}
+		\paragraph{Design Concerns}
+		Master Self-test,
+		Real-time Server Detection,
+		Server Recovery,
+		Service Registry,
 
 		Candidate architecture patterns/tactics:
 		Master Self-test:
@@ -401,41 +403,15 @@
 				\hline
 			\end{tabular}
 		\end{center}
-		
-		Fast restart:
-			...
-		
-		Transparency to PC:
-			...
-		
-		Data Recovery:
-			...
-		
-		Service Registry:
-			...https://docs.qq.com/doc/DVU9YdkxKZWJTQ0VY
-		
-		Locating nodes:
-			... 
-
-		Resource allocation:
-			...
-
-		Resource collection:
-			... 
-
-		Horizontal extension:
-			...
-
-		Chosen pattern/tactics:
-			Master Self-test:
-				Hot spare
-			Chosen reason: 
 
 			Health detection:
-				Loading table
+				pattern name, communication pressure, storage pressure, report threshold, rate, transparent to PC
+				Loading table, high, high, no, controllable, yes 
+				Server warning, low, low, controllable, up to context, almost
+				PC warning, no, no, uncontrollable, up to context, not
 			
 			Fast restart:
-				
+				...
 			
 			Transparency to PC:
 				...
@@ -444,7 +420,7 @@
 				...
 			
 			Service Registry:
-				...
+				...https://docs.qq.com/doc/DVU9YdkxKZWJTQ0VY
 			
 			Locating nodes:
 				... 
@@ -457,6 +433,38 @@
 
 			Horizontal extension:
 				...
+
+			Chosen pattern/tactics:
+				Master Self-test:
+					Hot spare
+				Chosen reason: 
+
+				Health detection:
+					Loading table
+				
+				Fast restart:
+					
+				
+				Transparency to PC:
+					...
+				
+				Data Recovery:
+					...
+				
+				Service Registry:
+					...
+				
+				Locating nodes:
+					... 
+
+				Resource allocation:
+					...
+
+				Resource collection:
+					... 
+
+				Horizontal extension:
+					...
 		
 		\subsubsection{Iteration 3}
 		Chosen ASR: 
