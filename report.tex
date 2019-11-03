@@ -114,9 +114,87 @@
 		\end{table}
 	\end{center}
 
-	
-	
 
+	\begin{center}
+		\begin{table}[!htb]
+		\begin{tabular}{ccc}
+		\toprule  
+		Portion of Scenario & Possible Values\\
+		\midrule 
+		Source 				& The client is going to request related infomation \\
+							& from the target server , usually the important \\
+							& personal infomation\\
+		Stimulus 			& The infomation sends back to the client\\
+		Artifact 			& Client PC	\\
+		Environment 		& Query from DB , server cache and Request queue\\
+		Response 			& The server has to fetch the user request and \\
+							& conduct the related query from the data source , \\
+							& with the maintainance of the data integrity. \\
+							& To maintain the data integrity , the server \\
+							& should checkout whether the data has the \\
+							& lattest version and no other conflict \\
+							& writing conduction is on going.\\
+		Response Measure 	& The data sent back to the user\\
+							& has to be 100 percents integrity.\\
+
+		\bottomrule
+		\end{tabular}
+		\caption{Integrity Scenario}
+		\end{table}
+	\end{center}
+	
+	\begin{center}
+		\begin{table}[!htb]
+		\begin{tabular}{ccc}
+		\toprule  
+		Portion of Scenario & Possible Values\\
+		\midrule 
+		Source 				& More customer load push on the system\\
+		Stimulus 			& More than five thousand of user are using the system\\
+		Artifact 			& Master server , keeper\\
+		Environment 		& Network connection , agent requests \\
+		Response 			& The server should detect the specific \\
+							& server that is overloadded, \\
+							& and reallocate the request to other leisure node;\\
+							& The keeper should arrange the request queue to ensure \\
+							& the syncronize the data flow in the process ,\\
+							& ensuring the data is always correct.\\
+		Response Measure 	& Load balance , horizontal expansion and reqeust queue \\
+							& to resolve the high concurrency\\
+
+
+		\bottomrule
+		\end{tabular}
+		\caption{Availability Scenario}
+		\end{table}
+	\end{center}
+
+	\begin{center}
+		\begin{table}[!htb]
+		\begin{tabular}{ccc}
+		\toprule  
+		Portion of Scenario & Possible Values\\
+		\midrule 
+		Source 				& One agent somhow choose to save the session and \\
+							& return back to continue the session.\\
+		Stimulus 			& The system is going to save the context of the \\
+							& current session of agents.\\
+		Artifact 			& A session which represents the current \\
+							& state of both agents' infomation , \\
+							& session attributes and so on.\\
+		Environment 		& keeper \\
+		Response 			& The keeper reply the saving request \\
+							& and put the session infomation to the \\
+							& base storage in keeper's cluster , \\
+							& and set back the session identification to agents.\\
+		Response Measure 	& Set up local storages which is reponsible of saving sessions\\
+							&  in the server of keeper and  \\
+							& arrange the location of the storage.\\
+		\bottomrule
+		\end{tabular}
+		\caption{Usability Scenario}
+		\end{table}
+	\end{center}
 
 	\subsection{Records of ADD iterations}
 		\subsubsection{Iteration 1}
