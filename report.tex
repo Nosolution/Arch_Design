@@ -305,20 +305,19 @@
 					Design Concerns & subordinate Concerns\\
 					\hline 
 					% \multirow{rows}{width}{text}
-					\multirow{2}*{Availability} & a\\
-					\cline{2-2}
-					~ & aa\\
-					\hline
-					scalability & b\\
+					% \multirow{2}*{Availability \& Scalability} & broker\\
+					% \cline{2-2}
+					% ~ & redundant broker\\
+					Availability \& Scalability & broker\\
 					\hline
 				\end{tabular}
 			\end{center}
 			\paragraph{Select patterns}
-			\subparagraph{Alternative availability tactics}
+			\subparagraph{Alternative broker tactics}
 			Discriminating parameters:\\
 			\begin{itemize}
-				\item a
-				\item b
+				\item complexity
+				\item fault-tolerance
 			\end{itemize}
 			\begin{center}
 				\begin{tabular}{|c|c|c|}
@@ -336,49 +335,74 @@
 			\subparagraph{Reason} 
 			Added broker can help manage server nodes and easily achieve high availability. But the business background goal that the system can handle requests simultaneously with highly growing customers will implies high pressure on the broker. Redundant broker is adopted for data backup quick switch in emergency condition. 
 
-			\subparagraph{Alternative scalability tactics}
-			Discriminating parameters:\\
-			\begin{itemize}
-				\item a
-				\item b
-			\end{itemize}
-			\begin{center}
-				\begin{tabular}{|c|c|c|}
-					\hline
-					pattern name & complexity & fault-tolerance\\
-					\hline
-					broker& low& low\\
-					\hline
-					redundant broker& high& high\\
-					\hline
-				\end{tabular}
-			\end{center}
-			\subparagraph{Chosen pattern} 
-			redundant broker
-			\subparagraph{Reason} 
-			Added broker can help manage server nodes and easily achieve high availability. But the business background goal that the system can handle requests simultaneously with highly growing customers will implies high pressure on the broker. Redundant broker is adopted for data backup quick switch in emergency condition. 
+			% \subparagraph{Alternative scalability tactics}
+			% Discriminating parameters:\\
+			% \begin{itemize}
+			% 	\item a
+			% 	\item b
+			% \end{itemize}
+			% \begin{center}
+			% 	\begin{tabular}{|c|c|c|}
+			% 		\hline
+			% 		pattern name & complexity & fault-tolerance\\
+			% 		\hline
+			% 		broker& low& low\\
+			% 		\hline
+			% 		redundant broker& high& high\\
+			% 		\hline
+			% 	\end{tabular}
+			% \end{center}
+			% \subparagraph{Chosen pattern} 
+			% redundant broker
+			% \subparagraph{Reason} 
+			% Added broker can help manage server nodes and easily achieve high availability. But the business background goal that the system can handle requests simultaneously with highly growing customers will implies high pressure on the broker. Redundant broker is adopted for data backup quick switch in emergency condition. 
 
 
 		\subsubsection{Iteration 2}
-			\paragraph{Chosen ASR}
-			\begin{enumerate}
-			\item can handle a batch of requests simultaneously and can support multiple agents.
-			\item should manage a big cluster/allow for "leaner" growth
-			\item near 7x24 availability.
-			\item identification, monitoring, and elimination of processing bottle-necks
-			\end{enumerate}
-			\paragraph{Design Concerns}
-			Master Self-test,
-			Real-time Server Detection,
-			Server Recovery,
-			Service Registry,
 
-			Candidate architecture patterns/tactics:
-			Master Self-test:
-				pattern name, detection latency
-				Hot spare, <100ms
-				Warm spare, >1s
-				Cold spare, >5s
+		\paragraph{Chosen ASR}
+		\begin{enumerate}
+		\item can handle a batch of requests simultaneously and can support multiple agents.
+		\item should manage a big cluster/allow for "leaner" growth
+		\item near 7x24 availability.
+		\item identification, monitoring, and elimination of processing bottle-necks
+		\end{enumerate}
+		\paragraph{Design Concerns}
+		Master Self-test,
+		Real-time Server Detection,
+		Server Recovery,
+		Service Registry,
+
+		Candidate architecture patterns/tactics:
+		Master Self-test:
+			pattern name, detection latency
+			Hot spare, <100ms
+			Warm spare, >1s
+			Cold spare, >5s
+
+
+		\subparagraph{Health detection}
+		Discriminating parameters:\\
+		\begin{itemize}
+			\item communication pressure
+			\item storage pressure
+			\item report threshold
+			\item rate
+			\item transparent to PC
+		\end{itemize}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				pattern name & communication pressure & storage pressure & report threshold & rate & transparent to PC\\
+				\hline
+				Loading table & high & high & no & controllable& yes\\
+				\hline
+				Server warning & low & low & controllable & up to context & almost\\
+				\hline
+				PC warning & no & no & uncontrollable & up to context & not\\
+				\hline
+			\end{tabular}
+		\end{center}
 
 			Health detection:
 				pattern name, communication pressure, storage pressure, report threshold, rate, transparent to PC
