@@ -61,7 +61,7 @@
 		Response & Able to response for many requests at the same time. Detect the fault. \\
 		& Recover from the fault. Prevent the fault. \\		
 		Response Measure & Availability percentage(e.g. 99\%) \\
-		& Time to be back to service after an error occured. Time to detect a failure \\
+		& Time to be back to service after an error occurred. Time to detect a failure \\
 		\bottomrule
 		\end{tabular}
 		\caption{Availability Scenario}
@@ -79,7 +79,7 @@
 		Artifact & A waiting queue or something could caching the request temporarily. A mechanism  \\
 		& to serve the request after a short interval.\\
 		Environment & In-service. \\
-		Response & The C4 should be able to deal with a large bunchs of requests. And after a short\\ 
+		Response & The C4 should be able to deal with a large bunches of requests. And after a short\\ 
 		& interval, the request would be processed.\\
 		Response Measure & The time taken to serve every request.\\
 		& The lateness of the processing.\\
@@ -396,7 +396,7 @@
 					\begin{center}
 						\begin{tabular}{|c|c|c|c|}
 							\hline
-							pattern name & Replica Type & DownTime Estinamtes & Loss of Services\\
+							pattern name & Replica Type & Downtime Estimates & Loss of Services\\
 							\hline
 							Cold Restart & Passive 		& $>$ 2 minutes			  & yes			\\
 							\hline
@@ -473,7 +473,7 @@
 					\begin{center}
 						\begin{tabular}{|c|c|c|c|c|}
 							\hline
-							pattern name & Copying speed & Persist Volumn & Conflict Resistence & Timeout\\
+							pattern name & Copying speed & Persist Volume & Conflict Resistance & Timeout\\
 							\hline
 							Warm backup & quick speed & small & mid & 0.1s\\
 							\hline
@@ -550,7 +550,7 @@
 				\cline{2-2}
 				~ & Prevent data conflicts\\
 				\hline
-				Context Recovery & Storage and restorage\\
+				Context Recovery & Storage and restore\\
 				\cline{2-2}
 				~ & Fault detection\\
 				\hline
@@ -808,7 +808,7 @@
 			The PC agents communicate with C4 system across the WAN. 
 			Master node stands for the whole manager of C4 system . That is ,  the master node uses the loading table to temporarily record the load status of all subordinate slave server clusters, and can timely alarm and resource reallocation. The master node also contains a protocol subnode, which is mainly used to help the master node process user requests. After the agents send the request, they will first be parsed by the master node to inform the agents of the required service node location, and then the agents will send the request to the target server.	
 			The keeper is responsible for asynchronous event processing and session saving between server nodes. Use Lock Manager to allocate locks and save contexts through context storage.
-			The server node is mainly responsible for periodically reporting heart beat status to the master node, and can perform hot backup between nodes. Please note that one server node here is also a cluster. In our design, one cluster is responsible for a certain range. The service (similar to the microservices architecture), and the leader is elected by the vote inside the cluster to perform resource scheduling and service allocation to the subordinate slave. In addition, the server node also supports the processing of the protocol and async service. Responsible for the interaction of the NOSS and DS systems. The cache storage is responsible for the caching of the external DB system. Since each business request will design a query of more than a dozen data tables, considering the time loss of the cascaded query, we use the cache mechanism to The query result is cached inside the server.
+			The server node is mainly responsible for periodically reporting heart beat status to the master node, and can perform hot backup between nodes. Please note that one server node here is also a cluster. In our design, one cluster is responsible for a certain range. The service (similar to the micro-services architecture), and the leader is elected by the vote inside the cluster to perform resource scheduling and service allocation to the subordinate slave. In addition, the server node also supports the processing of the protocol and async service. Responsible for the interaction of the NOSS and DS systems. The cache storage is responsible for the caching of the external DB system. Since each business request will design a query of more than a dozen data tables, considering the time loss of the cascaded query, we use the cache mechanism to The query result is cached inside the server.
 
 		\subsubsection{Shared-Data View} 
 			\paragraph{Section 1: The Primary Presentation}
@@ -868,7 +868,7 @@
 			\subparagraph{Element behavior}
 			\begin{itemize}
 			\item{Client} Respond to end user interaction
-			\item{Master} In response to the Client's service list obtaining request, Master will generate an appropriate service list and returns according to the current cluster load situation and the predefined load balancing policy; Collecting periodic load information reports from Server nodes; If load information report of a Server node is not received within the certain period, the Server node is considered to be failed, and will be removed from the service list; Accept and process service registration requests from eht new Server nodes			
+			\item{Master} In response to the Client's service list obtaining request, Master will generate an appropriate service list and returns according to the current cluster load situation and the predefined load balancing policy; Collecting periodic load information reports from Server nodes; If load information report of a Server node is not received within the certain period, the Server node is considered to be failed, and will be removed from the service list; Accept and process service registration requests from the new Server nodes			
 			\item{Server} Respond to Clients' business requests; Periodically processing asynchronous responses from external systems  in the message queue; When Clients request to interrupt the current business, the Server will save the current business context in Keeper, and when Clients request to restore the current business, Server obtains the stored context information from the Keeper and returns it; For each Client's business, Server will request Keeper to lock or release lock of related system resources 			
 			\item{Keeper} Response to Servers' lock service request according to the current resources lock situation; Response to Servers' context read and write requests			
 			\end{itemize}
@@ -917,7 +917,7 @@
 		In addition, Clients are implemented by multiple PC physical machines.\\
 
 	\subsection{Rationale}
-	According to business goal, availabiity and scalability are of high importance. We use distrubuted architecture managed by "a master node" to meet the need of high growth rate  and scalability. In addition, master node are also a  cluster of servers, in order to be fault-tolerent. Besides, the master node will take up most of the communications in the network so a cluster rather than a single node can insure in-time data backups.
+	According to business goal, availability and scalability are of high importance. We use distributed architecture managed by "a master node" to meet the need of high growth rate  and scalability. In addition, master node are also a  cluster of servers, in order to be fault-tolerant. Besides, the master node will take up most of the communications in the network so a cluster rather than a single node can insure in-time data backups.
 	In addition, data consistency and usability are also desired. So a keeper that are responsible for resource lock is raised. Each server will need to apply and register the resource before any operation.
 
 	\subsection{Directory}
@@ -931,7 +931,7 @@
 		\item{lockManager} Allocate locks and save contexts through context storage
 		\item{Cache} When the response messages of other systems reach the system, they will be cached in the system
 		\item{Async Service} Receive the async message and rearrange the message queue to avoid the message conflict.
-		\item{Loading Table} Store the sub server loaction and ready to return back to agents; Used for load balance.
+		\item{Loading Table} Store the sub server location and ready to return back to agents; Used for load balance.
 		\item{Multiple backups comparison} Data is stored in a redundant manner, and each backup operates independently of the other. If inconsistent data is detected before access, the operation is considered to be in conflict
 		\item{Multiple backups restore} By comparison between independent redundant backups, the same majority of backups are used as the correct version
 
@@ -947,14 +947,14 @@
 
 	\subsection{Statement of Shaoxun Zeng}
 	\paragraph{1: ADD experience}
-	I feel it is difficult to narrow down the focuses. For example, in the ADD second iteration, we choose the “broker node” to break down. And we brainstormed many ideas, but when we came to the “Design Concerns” section, it is difficult to summerize them into several main categories.
-Also, figuring out the tactics used to solve the architetural requirements is a big deal to me since we lack the development experience. I could only do my best to “imagine” the real situations combined with the information gathered from the Internet.
+	I feel it is difficult to narrow down the focuses. For example, in the ADD second iteration, we choose the “broker node” to break down. And we brainstormed many ideas, but when we came to the “Design Concerns” section, it is difficult to summarize them into several main categories.
+Also, figuring out the tactics used to solve the architectural requirements is a big deal to me since we lack the development experience. I could only do my best to “imagine” the real situations combined with the information gathered from the Internet.
 In a nutshell, it is useful to follow these steps. In the last phase, when I put all the parts together, I find it is natural to reach the final result with our refinement, which is not such an obvious result from the first glance of the requirement document.
 	\paragraph{2: Contribution}
-	During the disccusion, I participated in the whole process.
+	During the discussion, I participated in the whole process.
 	More specificly, I wrote some scenarios of the ASR, participated in the all iterations of ADD, gave out some tactics and requirement specifications, documented the Shared-Data View and part of the ADD second iteration documentation.
-	And also, I think I pushed the whole process during the disccusion. For example, when we stuck in the brainstorming, I suggested to move on and came back to this point a fewer minutes later. 
-	Since we use the latex for formating, I do a lot of works about the formating of the whole document.
+	And also, I think I pushed the whole process during the discussion. For example, when we stuck in the brainstorming, I suggested to move on and came back to this point a fewer minutes later. 
+	Since we use the latex for formatting, I do a lot of works about the formatting of the whole document.
 
 	\subsection{Statement of Fangming Lu}
 	\paragraph{1: ADD experience}
